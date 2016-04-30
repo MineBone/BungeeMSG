@@ -1,0 +1,70 @@
+Ranks:
+  Admin:
+    HasPerms:
+    - Moderator
+    - Default
+    Perms:
+    - BungeeMSG.channels.admin
+    - BungeeMSG.channels.staff
+    - BungeeMSG.reload
+    - BungeeMSG.broadcast
+    - BungeeMSG.setrank
+    - BungeeMSG.bypass.*
+    # BungeeMSG.bypass.bannedwords
+    # BungeeMSG.bypass.ips
+    # BungeeMSG.bypass.domainnames
+    # BungeeMSG.bypass.cooldown
+    # BungeeMSG.bypass.duplicate
+    # BungeeMSG.bypass.toofast
+    # BungeeMSG.bypass.caps
+    # BungeeMSG.bypass.mute
+    # BungeeMSG.bypass.ignore
+    - BungeeMSG.colors.*
+    # BungeeMSG.colors.black
+    # BungeeMSG.colors.dark_blue
+    # BungeeMSG.colors.green
+    # BungeeMSG.colors.cyan
+    # BungeeMSG.colors.dark_red
+    # BungeeMSG.colors.purple
+    # BungeeMSG.colors.orange
+    # BungeeMSG.colors.light_gray
+    # BungeeMSG.colors.gray
+    # BungeeMSG.colors.blue
+    # BungeeMSG.colors.lime
+    # BungeeMSG.colors.aqua
+    # BungeeMSG.colors.red
+    # BungeeMSG.colors.pink
+    # BungeeMSG.colors.yellow
+    # BungeeMSG.colors.white
+    # BungeeMSG.colors.reset
+    # BungeeMSG.colors.italic
+    # BungeeMSG.colors.bold
+    # BungeeMSG.colors.magic
+    # BungeeMSG.colors.strikethrough
+    # BungeeMSG.colors.underlined
+
+  Moderator:
+    HasPerms:
+    - Default
+    Perms:
+    - BungeeMSG.channels.staff
+    - BungeeMSG.spy
+    - BungeeMSG.toggle
+    - BungeeMSG.toggle.other
+    - BungeeMSG.mute
+    - BungeeMSG.muteall
+    - BungeeMSG.spy.on
+    - BungeeMSG.notifyreport
+    - BungeeMSG.notifyhelpop
+    - BungeeMSG.reportlist
+
+  #Leave the 'Default' Rank name as it is, you may edit other rank names but not this one.
+  Default:
+    HasPerms: []
+    Perms:
+    - BungeeMSG.msg
+    - BungeeMSG.reply
+    - BungeeMSG.global
+    - BungeeMSG.ignore
+    - BungeeMSG.report
+    - BungeeMSG.helpop

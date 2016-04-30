@@ -1,0 +1,313 @@
+Private:
+  Use: true
+
+  Permission:
+    Use: false
+    Permission: 'BungeeMSG.msg'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% <player> <msg>&7.'
+    ToReceiver:
+      Message: '&7[%server-sender%&7] &6%suggest-player% &7> &7[%server-receiver%&7] &6%receiver%&7: &6%msg%'
+    ToSender:
+      Message: '&7[%server-sender%&7] &6%sender% &7> &7[%server-receiver%&7] &6%suggest-player%&7: &6%msg%'
+
+  Commands:
+  - /msg
+  - /m
+  - /tell
+  - /t
+  - /whisper
+  - /w
+
+Reply:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.reply'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% <msg>&7.'
+    Info:
+      Message: '&7Use &6/r <msg>&7 to reply.'
+
+  Commands:
+  - /reply
+  - /r
+
+Reload:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.reload'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+
+  Commands:
+  - /msgreload
+
+Spy:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.spy'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    Message:
+      Message: '&eSpy &8| &7[%server-sender%&7] &6%sender% &7> &7[%server-receiver%&7] &6%receiver%&7: &6%msg%'
+    Enable:
+      Message: '&eSpy &8| &aEnabled &eSpy Mode&7!'
+    Disable:
+      Message: '&eSpy &8| &cDisabled &eSpy Mode&7!'
+
+  Commands:
+  - /msgspy
+
+Toggle:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.toggle'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    Disabled:
+      Message: '&7Your Private Messages have been &cDisabled&7!'
+    DisabledOther:
+      Message: '&6%receiver% &cDisabled&7 Private Messages!'
+    Enable:
+      Message: '&aEnabled &7Private Messages!'
+    Disable:
+      Message: '&cDisabled &7Private Messages!'
+    EnableOther:
+      Message: '&aEnabled &6%toggled%''s &7Private Messages!'
+    DisableOther:
+      Message: '&cDisabled &6%toggled%''s &7Private Messages!'
+    EnableToPlayer:
+      Message: '&6%sender% &aEnabled &7your Private Messages!'
+    DisableToPlayer:
+      Message: '&6%sender% &cDisabled &7your Private Messages!'
+
+  Commands:
+  - /msgtoggle
+
+Mute:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.mute'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% <player>&7.'
+    Muted:
+      Message: '&7You cannot use private messages. You have been muted!'
+    Mute:
+      Message: '&7You muted &6%muted%&7!'
+    Unmute:
+      Message: '&7You unmuted &6%muted%&7!'
+    MuteToPlayer:
+      Message: '&7You have been muted by &6%sender%&7!'
+    UnmuteToPlayer:
+      Message: '&7You have been unmuted by &6%sender%&7!'
+
+  Commands:
+  - /msgmute
+
+Global:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.global'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+
+  Commands:
+  - /msgglobal
+
+MuteAll:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.muteall'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    MuteAll:
+      Message: '&6Muted&7 all Players!'
+    UnmuteAll:
+      Message: '&6Unmuted&7 all Players!'
+    MuteServer:
+      Message: '&6Muted&7 all Players in %server-name%&7!'
+    UnmuteServer:
+      Message: '&6Unmuted&7 all Players in %server-name%!'
+    MuteAllToPlayer:
+      Message: '&7You have been muted by &6%sender%&7!'
+    UnmuteAllToPlayer:
+      Message: '&7You have been unmuted by &6%sender%&7!'
+
+  Commands:
+  - /msgmuteall
+
+Ignore:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.ignore'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% <player>&7.'
+    Ignored:
+      Message: '&7You ignored &6%receiver%&7!'
+    IgnoredToPlayer:
+      Message: '&6%receiver%&7 ignored you.'
+    Ignore:
+      Message: '&7You''re now ignoring &6%ignored%&7!'
+    NoIgnore:
+      Message: '&7You''re no longer ignoring &6%ignored%&7.'
+
+  Commands:
+  - /ignore
+
+Report:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.report'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% <player> <reason>&7.'
+    OnCooldown:
+      Message: '&7You may only report a player once every &610 minutes&7!'
+    Report:
+      Message: '&7Succesfully reported &6%reported%&7! (&6%reason%&7)'
+    ReportToStaff:
+      Message: '&7[&cReport&7] [%server-sender%&7] &6%sender% &7-> [%server-reported%&7] &c%reported%&7. (&6%reason%&7)'
+
+  Commands:
+  - /report
+
+HelpOp:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.helpop'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% <reason>&7.'
+    OnCooldown:
+      Message: '&7You may only ask for help every &65 minutes&7!'
+    HelpOp:
+      Message: '&7Succesfully asked for help! (&6%reason%&7)'
+    HelpOpToStaff:
+      Message: '&7[&dHelpOp&7] [%server-sender%&7] &6%sender%&7: &d%reason%'
+
+  Commands:
+  - /helpop
+
+Broadcast:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.broadcast'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% <server>|ALL <msg>&7.'
+    Broadcast:
+      MessageList:
+      - '&f'
+      - ' &c&lBroadcast &7(&c%sender%&7)'
+      - '  &6%msg%'
+
+  Commands:
+  - /broadcast
+  - /bc
+
+SetRank:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.setrank'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% <player> <rank>&7.'
+    UnknownRank:
+      Message: '&7Rank &6%rank%&7 does not exist!'
+    RankSet:
+      Message: '&6%receiver%&7''s Rank has been set to &6%rank%&7!'
+
+  Commands:
+  - /setrank
+
+ReportList:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.reportlist'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% (player) <amount>&7.'
+    ReportListLast:
+      MessageList:
+      - ''
+      - '&7Last &6%amount% reports&7:'
+    ReportListPlayer:
+      MessageList:
+      - ''
+      - '&7Last &6%amount% reports&7 for &6%reported%&7:'
+    ReportDisplay:
+      Message: '&6%reported&7 | &6%reporter%&7 | &6%server-name% &7| &6%date%&7 | &6%reason%'
+    NoPlayerReports:
+      Message: '&6%reported%&7 has never been reported!'
+    NoReports:
+      Message: '&7Noone has been reported!'
+
+  Commands:
+  - /reportlist

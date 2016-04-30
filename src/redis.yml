@@ -1,0 +1,4 @@
+Use: false
+
+# Set this to true for all bungee servers except one, which will be your 'head' BungeeMSG plugin.
+Subplugin: false

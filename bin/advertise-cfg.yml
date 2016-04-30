@@ -1,0 +1,17 @@
+Use: true
+Kick: true
+
+Cancel:
+  IPs: true
+  Domains: true
+  
+Messages:
+  KickMessage: '&6&lKicked! &7Sending &6%type%&7 through PMs isn''t allowed!'
+  Message: 
+    Message: '&7You''re not allowed to send &6%type%&7 through Private Messages!'
+
+IPs:
+- '127.0.0.1'
+
+DomainNames:
+- 'spigotmc.org'

@@ -1,0 +1,12 @@
+Use: true
+Auto: false
+
+Groups:
+  'SG':
+    Servers: 'sg-1|sg-2|sg-3'
+    Message: 
+      Message: '&7[%server-sender%&7] &6%sender%&7: &6%msg%'
+  'ALL':
+    Servers: '[ALL]'
+    Message:
+      Message: '&7[&3&lGlobal&7] &7[%server-sender%&7] &6%sender%&7: &6%msg%'

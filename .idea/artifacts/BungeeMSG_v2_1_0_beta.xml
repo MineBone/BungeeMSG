@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BungeeMSG v2.1.0_beta">
+    <output-path>D:/Files/Spigot/Spigot-Bungee Test Server/plugins</output-path>
+    <root id="archive" name="BungeeMSG v2.1.0_beta.jar">
+      <element id="module-output" name="BungeeMSG" />
+    </root>
+  </artifact>
+</component>

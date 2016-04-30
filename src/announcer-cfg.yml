@@ -1,0 +1,38 @@
+Use: true
+
+Announcers:
+  'NewFeatures':
+    Servers: '[ALL]'
+    Delay: 180
+    
+    Messages:
+      '1':
+        MessageList:
+          - '&f'
+          - ' &6&lBungee&7&lMSG &7- &dAutoAnnouncer'
+          - '&f'
+      '2':
+        MessageList:
+          - '&f'
+          - ' &6&lBungee&7&lMSG &7- &dNew v1.7.1 feature.'
+          - '&f'
+      '3':
+        MessageList:
+          - '&f'
+          - ' &6&lBungee&7&lMSG &7- &dSince v2.1.0 you can also connect to %suggest-server-hub%.'
+          - '&f'
+  'Hub&SG':
+    Servers: 'hub|sg-1'
+    Delay: 120
+    
+    Messages:
+      '1':
+        MessageList:
+          - '&f'
+          - ' &6&lBungee&7&lMSG &7- &bWill only be shown in the Hub and SG-1 Server!'
+          - '&f'
+      '2':
+        MessageList:
+          - '&f'
+          - ' &6&lBungee&7&lMSG &7- &bHello %receiver%!'
+          - '&f'

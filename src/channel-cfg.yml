@@ -1,0 +1,41 @@
+Use: true
+
+Channels:
+  Admin:
+    Permission:
+      Use: true
+      Permission: 'BungeeMSG.channels.admin'
+    
+    Symbol:
+      StartWith:
+      - '/admin '
+      Toggle:
+      - '/adminchat'
+      - '/ac'
+      
+    Messages:
+      Message:
+        Message: '&7[&c&lAdmin&7] &7[%server-sender%&7] &6%sender%&7: &6%msg%'
+      Enable:
+        Message: '&7[&c&lAdmin&7] &aEnabled&7 your &cAdmin Chat&7.'
+      Disable:
+        Message: '&7[&c&lAdmin&7] &cDisabled&7 your &cAdmin Chat&7.'
+  
+  Staff:
+    Permission:
+      Use: true
+      Permission: 'BungeeMSG.channels.staff'
+    
+    Symbol:
+      StartWith:
+      - '@'
+      Toggle:
+      - '#'
+    
+    Messages:
+      Message:
+        Message: '&7[&b&lStaff&7] &7[%server-sender%&7] &6%sender%&7: &6%msg%'
+      Enable:
+        Message: '&7[&b&lStaff&7] &aEnabled&7 your &bStaff Chat&7.'
+      Disable:
+        Message: '&7[&b&lStaff&7] &cDisabled&7 your &bStaff Chat&7.'
