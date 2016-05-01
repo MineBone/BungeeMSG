@@ -26,11 +26,11 @@
     <favorites_list name="BungeeMSG" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="BungeeMSG.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/BungeeMSG.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2987">
+            <state relative-caret-position="5321">
               <caret line="391" column="22" selection-start-line="391" selection-start-column="22" selection-end-line="391" selection-end-column="22" />
               <folding />
             </state>
@@ -40,7 +40,7 @@
       <file leaf-file-name="PlayerChatEvent.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/events/PlayerChatEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-427">
+            <state relative-caret-position="17">
               <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
               <folding />
             </state>
@@ -50,7 +50,7 @@
       <file leaf-file-name="BungeePlayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/BungeePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1156">
+            <state relative-caret-position="2108">
               <caret line="151" column="48" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="48" />
               <caret line="152" column="49" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="49" />
               <caret line="153" column="43" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="43" />
@@ -59,7 +59,6 @@
               <caret line="160" column="50" selection-start-line="160" selection-start-column="25" selection-end-line="160" selection-end-column="50" />
               <caret line="161" column="40" selection-start-line="161" selection-start-column="25" selection-end-line="161" selection-end-column="40" />
               <folding>
-                <element signature="e#3675#3690#0" expanded="true" />
                 <element signature="e#4520#4521#0" expanded="true" />
                 <element signature="e#4583#4584#0" expanded="true" />
                 <element signature="e#4631#4632#0" expanded="true" />
@@ -82,7 +81,7 @@
       <file leaf-file-name="Title.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/Title.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-85">
+            <state relative-caret-position="68">
               <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
             </state>
@@ -112,7 +111,7 @@
       <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/utils/enums/Message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
+            <state relative-caret-position="1411">
               <caret line="85" column="67" selection-start-line="85" selection-start-column="67" selection-end-line="85" selection-end-column="67" />
               <folding />
             </state>
@@ -132,7 +131,7 @@
       <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/utils/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
+            <state relative-caret-position="510">
               <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
               <folding>
                 <element signature="e#942#943#0" expanded="true" />
@@ -150,6 +149,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -218,10 +220,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2898" />
-    <option name="y" value="132" />
-    <option name="width" value="967" />
-    <option name="height" value="980" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1176" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -248,7 +250,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -266,6 +267,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="BungeeMSG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BungeeMSG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BungeeMSG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BungeeMSG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BungeeMSG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fadidev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apitest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -485,10 +526,11 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../workspace/OrbitMines" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15917969" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -756,7 +798,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2898" y="132" width="967" height="980" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -769,7 +811,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37706727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37686568" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -901,7 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="29" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1023,7 +1064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="117" column="42" selection-start-line="117" selection-start-column="42" selection-end-line="117" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +1138,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="591">
           <caret line="293" column="58" selection-start-line="293" selection-start-column="58" selection-end-line="293" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,13 +1153,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
+        <state relative-caret-position="510">
           <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
           <folding>
             <element signature="e#942#943#0" expanded="true" />
@@ -1139,7 +1177,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/utils/enums/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
+        <state relative-caret-position="1411">
           <caret line="85" column="67" selection-start-line="85" selection-start-column="67" selection-end-line="85" selection-end-column="67" />
           <folding />
         </state>
@@ -1171,7 +1209,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/Title.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
+        <state relative-caret-position="68">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
@@ -1179,7 +1217,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/BungeePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1156">
+        <state relative-caret-position="2108">
           <caret line="151" column="48" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="48" />
           <caret line="152" column="49" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="49" />
           <caret line="153" column="43" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="43" />
@@ -1188,7 +1226,6 @@
           <caret line="160" column="50" selection-start-line="160" selection-start-column="25" selection-end-line="160" selection-end-column="50" />
           <caret line="161" column="40" selection-start-line="161" selection-start-column="25" selection-end-line="161" selection-end-column="40" />
           <folding>
-            <element signature="e#3675#3690#0" expanded="true" />
             <element signature="e#4520#4521#0" expanded="true" />
             <element signature="e#4583#4584#0" expanded="true" />
             <element signature="e#4631#4632#0" expanded="true" />
@@ -1199,7 +1236,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/BungeeMSG.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2987">
+        <state relative-caret-position="5321">
           <caret line="391" column="22" selection-start-line="391" selection-start-column="22" selection-end-line="391" selection-end-column="22" />
           <folding />
         </state>
@@ -1207,7 +1244,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/events/PlayerChatEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-427">
+        <state relative-caret-position="17">
           <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
           <folding />
         </state>
