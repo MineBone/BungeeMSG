@@ -792,12 +792,12 @@ public class PlayerChatEvent implements Listener {
 
                                                         if(all){
                                                             for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()){
-                                                                mP.send(player, false);
+                                                                mP.send(player, p, p, false);
                                                             }
                                                         }
                                                         else{
                                                             for(ProxiedPlayer player : serverInfo.getPlayers()){
-                                                                mP.send(player, false);
+                                                                mP.send(player, p, p, false);
                                                             }
                                                         }
                                                     }
@@ -885,7 +885,7 @@ public class PlayerChatEvent implements Listener {
                                                                                 }
                                                                                 
                                                                                 if(msg.hasReplyInfo() && bp2.getLastMSG() == null){
-                                                                                    MessageParser mP4 = Message.REPLY_INFO.getParser(bp);
+                                                                                    MessageParser mP4 = Message.REPLY_INFO.getParser(bp2);
                                                                                     mP4.send(p2, true);
                                                                                 }
                                                                                 
@@ -997,7 +997,7 @@ public class PlayerChatEvent implements Listener {
                                                                                 }
 
                                                                                 if(msg.hasReplyInfo() && bp2.getLastMSG() == null){
-                                                                                    MessageParser mP4 = Message.REPLY_INFO.getParser(bp);
+                                                                                    MessageParser mP4 = Message.REPLY_INFO.getParser(bp2);
                                                                                     mP4.send(p2, true);
                                                                                 }
 

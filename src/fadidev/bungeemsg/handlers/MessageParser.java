@@ -1,22 +1,20 @@
 package fadidev.bungeemsg.handlers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import fadidev.bungeemsg.BungeeMSG;
 import fadidev.bungeemsg.handlers.SpigotBridge.PlayerVariable;
 import fadidev.bungeemsg.handlers.SpigotBridge.StandardVariable;
-import net.md_5.bungee.api.ProxyServer;
-import net.md_5.bungee.api.config.ServerInfo;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
-import fadidev.bungeemsg.BungeeMSG;
 import fadidev.bungeemsg.managers.AdvertiseManager;
 import fadidev.bungeemsg.utils.Utils;
 import fadidev.bungeemsg.utils.enums.LogReadType;
 import fadidev.bungeemsg.utils.enums.Message;
 import fadidev.bungeemsg.utils.enums.Variable;
 import fadidev.bungeemsg.utils.enums.WhitelistType;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MessageParser {
 
@@ -125,7 +123,9 @@ public class MessageParser {
 
     public void send(ProxiedPlayer p, boolean updateCustom){
         if(!cancelled){
-           if(updateCustom) parseCustomVariables(p, null);
+            BungeePlayer bp = BungeePlayer.getBungeePlayer(p);
+
+            if(updateCustom) parseCustomVariables(p, null);
 
             if(message != null){
                 this.message = Utils.checkforColors(p, message);
@@ -136,8 +136,8 @@ public class MessageParser {
                 int index = 0;
                 for(String s : messageList){
                     messageList.set(index, Utils.checkforColors(p, s));
+                    bp.sendMessage(messageList.get(index), null);
                     index++;
-                    bp.sendMessage(s, null);
                 }
             }
 
@@ -158,9 +158,10 @@ public class MessageParser {
 
     public void send(ProxiedPlayer p, ProxiedPlayer sender, ProxiedPlayer colorCheck, boolean updateCustom){
         if(!cancelled){
+            BungeePlayer bp = msg.getBungeePlayers().get(p);
+
             if(updateCustom) parseCustomVariables(p, sender);
 
-            BungeePlayer bp = msg.getBungeePlayers().get(p);
             if(message != null){
                 this.message = Utils.checkforColors(colorCheck, message);
                 bp.sendMessage(message, sender);
@@ -170,8 +171,8 @@ public class MessageParser {
                 int index = 0;
                 for(String s : messageList){
                     messageList.set(index, Utils.checkforColors(colorCheck, s));
+                    bp.sendMessage(messageList.get(index), sender);
                     index++;
-                    bp.sendMessage(s, sender);
                 }
             }
 

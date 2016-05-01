@@ -78,7 +78,7 @@ public class Utils {
     public static String checkforColors(ProxiedPlayer p, String message){
         BungeePlayer bp = BungeePlayer.getBungeePlayer(p);
         for(ChatColor cc : ChatColor.values()){
-            if(bp.hasPermission(cc.getPermission(), "BungeeMSG.colors.*")){
+            if(cc.hasPermission(bp)){
                 message = message.replace(cc.getToReplace(), cc.getReplacement());
             }
         }
