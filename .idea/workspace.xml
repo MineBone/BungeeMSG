@@ -148,22 +148,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BungeePlayer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BungeePlayer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/BungeePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4544">
-              <caret line="151" column="48" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="48" />
-              <caret line="152" column="49" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="49" />
-              <caret line="153" column="43" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="43" />
-              <caret line="157" column="49" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="49" />
-              <caret line="158" column="65" selection-start-line="158" selection-start-column="25" selection-end-line="158" selection-end-column="65" />
-              <caret line="160" column="50" selection-start-line="160" selection-start-column="25" selection-end-line="160" selection-end-column="50" />
-              <caret line="161" column="40" selection-start-line="161" selection-start-column="25" selection-end-line="161" selection-end-column="40" />
+            <state relative-caret-position="248">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
-                <element signature="e#5038#5039#0" expanded="true" />
-                <element signature="e#5110#5111#0" expanded="true" />
-                <element signature="e#5161#5162#0" expanded="true" />
-                <element signature="e#5208#5209#0" expanded="true" />
+                <element signature="e#4626#4627#0" expanded="true" />
+                <element signature="e#4698#4699#0" expanded="true" />
+                <element signature="e#4749#4750#0" expanded="true" />
+                <element signature="e#4796#4797#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,7 +173,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/utils/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="641">
@@ -258,7 +252,6 @@
         <option value="$PROJECT_DIR$/src/fadidev/bungeemsg/configpaths/NewConfigPath.java" />
         <option value="$PROJECT_DIR$/src/cfg_paths_v2_1_0_cfg.yml" />
         <option value="$PROJECT_DIR$/src/fadidev/bungeemsg/utils/enums/Message.java" />
-        <option value="$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/BungeePlayer.java" />
         <option value="$PROJECT_DIR$/src/cfg.yml" />
         <option value="$PROJECT_DIR$/src/fadidev/bungeemsg/utils/NewConfigPath.java" />
         <option value="$PROJECT_DIR$/src/announcer-cfg.yml" />
@@ -269,6 +262,7 @@
         <option value="$PROJECT_DIR$/.classpath" />
         <option value="$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/MessageParser.java" />
         <option value="$PROJECT_DIR$/src/fadidev/bungeemsg/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/BungeePlayer.java" />
       </list>
     </option>
   </component>
@@ -1354,30 +1348,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/BungeePlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4544">
-          <caret line="151" column="48" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="48" />
-          <caret line="152" column="49" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="49" />
-          <caret line="153" column="43" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="43" />
-          <caret line="157" column="49" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="49" />
-          <caret line="158" column="65" selection-start-line="158" selection-start-column="25" selection-end-line="158" selection-end-column="65" />
-          <caret line="160" column="50" selection-start-line="160" selection-start-column="25" selection-end-line="160" selection-end-column="50" />
-          <caret line="161" column="40" selection-start-line="161" selection-start-column="25" selection-end-line="161" selection-end-column="40" />
-          <folding>
-            <element signature="e#5038#5039#0" expanded="true" />
-            <element signature="e#5110#5111#0" expanded="true" />
-            <element signature="e#5161#5162#0" expanded="true" />
-            <element signature="e#5208#5209#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="641">
           <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fadidev/bungeemsg/handlers/BungeePlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="e#4626#4627#0" expanded="true" />
+            <element signature="e#4698#4699#0" expanded="true" />
+            <element signature="e#4749#4750#0" expanded="true" />
+            <element signature="e#4796#4797#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

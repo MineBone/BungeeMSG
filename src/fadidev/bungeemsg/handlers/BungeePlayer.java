@@ -1,14 +1,9 @@
 package fadidev.bungeemsg.handlers;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import fadidev.bungeemsg.BungeeMSG;
+import fadidev.bungeemsg.managers.SpamManager;
+import fadidev.bungeemsg.utils.Utils;
+import fadidev.bungeemsg.utils.enums.*;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -16,14 +11,10 @@ import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.ChatEvent;
 import net.md_5.bungee.config.Configuration;
-import fadidev.bungeemsg.BungeeMSG;
-import fadidev.bungeemsg.managers.SpamManager;
-import fadidev.bungeemsg.utils.Utils;
-import fadidev.bungeemsg.utils.enums.Config;
-import fadidev.bungeemsg.utils.enums.Cooldown;
-import fadidev.bungeemsg.utils.enums.LogReadType;
-import fadidev.bungeemsg.utils.enums.Message;
-import fadidev.bungeemsg.utils.enums.Variable;
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BungeePlayer {
 
@@ -84,12 +75,7 @@ public class BungeePlayer {
             msg.getConfigManager().save(Config.PLAYERDATA);
         }
 
-        if(hasPermission("BungeeMSG.spy.on", null)){
-            this.spy = true;
-        }
-        else{
-            this.spy = false;
-        }
+        this.spy = hasPermission("BungeeMSG.spy.on", null);
     }
 
     public ProxiedPlayer getPlayer() {
