@@ -282,7 +282,7 @@ public class BungeeMSG extends Plugin {
 			message.setMSGLoader(new MessageLoader(message));
 		}
 	}
-	
+    
 	public void loadConfig(Config config, boolean reload){
 		Configuration c = getConfigManager().get(config);
 		switch(config){
