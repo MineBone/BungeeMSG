@@ -14,15 +14,15 @@ import java.util.UUID;
 
 public class PlayerDisconnectEvent implements Listener{
 
-	private BungeeMSG msg;
+    private BungeeMSG msg;
 
-	@EventHandler
-	public void onQuit(ServerDisconnectEvent e) {
-		this.msg = BungeeMSG.getInstance();
-		ProxiedPlayer p = e.getPlayer();
+    @EventHandler
+    public void onQuit(ServerDisconnectEvent e) {
+        this.msg = BungeeMSG.getInstance();
+        ProxiedPlayer p = e.getPlayer();
 
         /* Check if really disconnected (otherwise they switched servers) */
-		if(p.getServer() != null && p.getServer().getInfo() == e.getTarget()){
+        if(p.getServer() != null && p.getServer().getInfo() == e.getTarget()){
             for(PlayerVariable pVariable : msg.getPlayerVariables().values()){
                 if(pVariable.getPlayerValues().containsKey(p.getName())){
                     pVariable.getPlayerValues().remove(p.getName());
@@ -34,5 +34,5 @@ public class PlayerDisconnectEvent implements Listener{
                 msg.getCurrentActionbars().remove(p);
             }
         }
-	}
+    }
 }

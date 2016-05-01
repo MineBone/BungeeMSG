@@ -8,24 +8,24 @@ import net.md_5.bungee.api.connection.ProxiedPlayer;
 public class ActionBar {
 
     private BungeeMSG msg;
-	private String message;
+    private String message;
     private ProxiedPlayer player;
     private BungeePlayer bp;
-	private int stay;
+    private int stay;
     private int current;
-	
-	public ActionBar(ProxiedPlayer player, String message, int stay){
+
+    public ActionBar(ProxiedPlayer player, String message, int stay){
         this.msg = BungeeMSG.getInstance();
-		this.player = player;
+        this.player = player;
         if(player != null) this.bp = BungeePlayer.getBungeePlayer(player);
         this.message = message;
-		this.stay = stay;
+        this.stay = stay;
         this.current = 0;
-	}
-	
-	public String getMessage() {
-		return message;
-	}
+    }
+
+    public String getMessage() {
+        return message;
+    }
 
     public void setPlayer(ProxiedPlayer player) {
         this.player = player;
@@ -45,17 +45,17 @@ public class ActionBar {
     }
 
     public void setMessage(String message) {
-		this.message = message;
-	}
-	
-	public void send(){
-		TextComponent tc1 = new TextComponent(message);
-		player.sendMessage(ChatMessageType.ACTION_BAR, tc1);
-	}
-	
-	public ActionBar copy(){
-		return new ActionBar(player, message, stay);
-	}
+        this.message = message;
+    }
+
+    public void send(){
+        TextComponent tc1 = new TextComponent(message);
+        player.sendMessage(ChatMessageType.ACTION_BAR, tc1);
+    }
+
+    public ActionBar copy(){
+        return new ActionBar(player, message, stay);
+    }
 
     public void check(){
         if(current == stay){

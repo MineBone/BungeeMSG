@@ -17,7 +17,7 @@ public class NameFetcher implements Callable<Map<UUID, List<String>>> {
     private static Map<UUID, List<String>> cache = new HashMap<>();
  
     public NameFetcher(UUID uuid){
-    	cache.put(uuid, getHistory(uuid));
+        cache.put(uuid, getHistory(uuid));
     }
     
     private List<String> getHistory(UUID uuid) {
@@ -34,28 +34,28 @@ public class NameFetcher implements Callable<Map<UUID, List<String>>> {
             try{
                 JSONArray array = (JSONArray) parser.parse(string);
                 if(array.size() != 1){
-	                for(int i = 0; i < array.size(); i++){
-	                    JSONObject obj = (JSONObject) array.get(i);
-	                    if(i == 0){
-	                    	names.add(obj.get("name") + "");
-	                    }
-	                    else if(i == array.size()){
-	                        SimpleDateFormat sd = new SimpleDateFormat();
-	                        sd.applyPattern( "dd-MM-yyyy HH:mm:ss" );
-	                        String date = sd.format(new Date((long) obj.get("changedToAt")));
-	                    	
-	                    	names.add(obj.get("name") + " �7(�6" + date + "�7)");   
-	                    }
-	                    else{
-	                        SimpleDateFormat sd = new SimpleDateFormat();
-	                        sd.applyPattern( "dd-MM-yyyy HH:mm:ss" );
-	                        String date = sd.format(new Date((long) obj.get("changedToAt")));
-	                        
-	                    	names.add(obj.get("name") + " �7(�6" + date + "�7)");
-	                    }
-	                }
+                    for(int i = 0; i < array.size(); i++){
+                        JSONObject obj = (JSONObject) array.get(i);
+                        if(i == 0){
+                            names.add(obj.get("name") + "");
+                        }
+                        else if(i == array.size()){
+                            SimpleDateFormat sd = new SimpleDateFormat();
+                            sd.applyPattern( "dd-MM-yyyy HH:mm:ss" );
+                            String date = sd.format(new Date((long) obj.get("changedToAt")));
+
+                            names.add(obj.get("name") + " �7(�6" + date + "�7)");
+                        }
+                        else{
+                            SimpleDateFormat sd = new SimpleDateFormat();
+                            sd.applyPattern( "dd-MM-yyyy HH:mm:ss" );
+                            String date = sd.format(new Date((long) obj.get("changedToAt")));
+
+                            names.add(obj.get("name") + " �7(�6" + date + "�7)");
+                        }
+                    }
                 }else{
-                	names.add(((JSONObject) array.get(0)).get("name") + "");
+                    names.add(((JSONObject) array.get(0)).get("name") + "");
                 }
             }catch(Exception e){
                 names = null;
@@ -74,8 +74,8 @@ public class NameFetcher implements Callable<Map<UUID, List<String>>> {
         cache.clear();
     }
 
-	@Override
-	public Map<UUID, List<String>> call() throws Exception {
-		return cache;
-	}
+    @Override
+    public Map<UUID, List<String>> call() throws Exception {
+        return cache;
+    }
 }

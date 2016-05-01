@@ -11,20 +11,20 @@ import java.util.List;
 
 public class ActionBarRunnable implements Runnable {
 
-	private BungeeMSG msg;
+    private BungeeMSG msg;
 
-	public ActionBarRunnable() {
-		this.msg = BungeeMSG.getInstance();
-	}
-	
-	@Override
-	public void run(){
-		List<ActionBar> actionBars = new ArrayList<>();
-		for(ActionBar ab : msg.getCurrentActionbars().values()){
-			actionBars.add(ab);
-		}
-		for(ActionBar ab : actionBars){
+    public ActionBarRunnable() {
+        this.msg = BungeeMSG.getInstance();
+    }
+
+    @Override
+    public void run(){
+        List<ActionBar> actionBars = new ArrayList<>();
+        for(ActionBar ab : msg.getCurrentActionbars().values()){
+            actionBars.add(ab);
+        }
+        for(ActionBar ab : actionBars){
             ab.check();
-		}
-	}
+        }
+    }
 }

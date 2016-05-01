@@ -7,8 +7,8 @@ import java.net.URL;
 
 public class UpdateUtils {
 
-	public static String getLatestVersion(){
-		try{
+    public static String getLatestVersion(){
+        try{
             HttpURLConnection con = (HttpURLConnection) new URL("http://www.spigotmc.org/api/general.php").openConnection();
             con.setDoOutput(true);
             con.setRequestMethod("POST");
@@ -19,11 +19,11 @@ public class UpdateUtils {
                 return version;
             }
             else{
-            	return "";
+                return "";
             }
         }catch(Exception ex){
-        	Utils.warnConsole("Error while checking for an update.");
-        	return "";
+            Utils.warnConsole("Error while checking for an update.");
+            return "";
         }
-	}
+    }
 }
