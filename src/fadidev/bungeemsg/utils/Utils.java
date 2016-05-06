@@ -77,9 +77,13 @@ public class Utils {
 
     public static String checkforColors(ProxiedPlayer p, String message){
         BungeePlayer bp = BungeePlayer.getBungeePlayer(p);
-        for(ChatColor cc : ChatColor.values()){
-            if(cc.hasPermission(bp)){
-                message = message.replace(cc.getToReplace(), cc.getReplacement());
+
+        // Check for offline player: lastMSGTo (BungeePlayer)
+        if(bp != null) {
+            for (ChatColor cc : ChatColor.values()) {
+                if (cc.hasPermission(bp)) {
+                    message = message.replace(cc.getToReplace(), cc.getReplacement());
+                }
             }
         }
 

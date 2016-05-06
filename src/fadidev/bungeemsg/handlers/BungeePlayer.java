@@ -9,7 +9,6 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.event.ChatEvent;
 import net.md_5.bungee.config.Configuration;
 
 import java.util.*;
@@ -182,8 +181,8 @@ public class BungeePlayer {
         msg.getConfigManager().save(Config.PLAYERDATA);
     }
 
-    public boolean isMuted(ChatEvent e){
-        return !hasPermission("BungeeMSG.bypass.mute", "BungeeMSG.bypass.*") && (e.isCancelled() || msg.getMutedUUIDs().contains(getPlayer().getUniqueId()) || msg.isAllMuted() || msg.getServersMuted().contains(getPlayer().getServer().getInfo()));
+    public boolean isMuted(){
+        return !hasPermission("BungeeMSG.bypass.mute", "BungeeMSG.bypass.*") && (msg.getMutedUUIDs().contains(getPlayer().getUniqueId()) || msg.isAllMuted() || msg.getServersMuted().contains(getPlayer().getServer().getInfo()));
     }
 
     public boolean hasPermission(String permission){
@@ -205,6 +204,7 @@ public class BungeePlayer {
     private List<String> getBungeePerms(){
         List<String> perms = new ArrayList<>();
         perms.addAll(getPlayer().getPermissions());
+        if(msg.bungeePermsUsed()) perms.addAll(msg.getBungeePermsApi().getPerms(getPlayer().getName()));
         return perms;
     }
 

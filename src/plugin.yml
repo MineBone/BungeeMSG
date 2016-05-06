@@ -1,6 +1,6 @@
 name: BungeeMSG
 author: O_o_Fadi_o_O
-version: 2.1.1_beta
+version: 2.1.3_beta
 description: BungeeMSG by O_o_Fadi_o_O - OrbitMines
 main: fadidev.bungeemsg.BungeeMSG
-softdepends: [RedisBungee]
+softdepends: [RedisBungee, BungeePerms]

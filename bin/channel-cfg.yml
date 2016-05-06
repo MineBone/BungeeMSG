@@ -10,8 +10,8 @@ Channels:
       StartWith:
       - '/admin '
       Toggle:
-      - '/adminchat'
-      - '/ac'
+      - '/adminchat '
+      - '/ac '
       
     Messages:
       Message:

@@ -2,8 +2,9 @@ package fadidev.bungeemsg;
 
 import fadidev.bungeemsg.events.*;
 import fadidev.bungeemsg.handlers.*;
-import fadidev.bungeemsg.handlers.SpigotBridge.PlayerVariable;
-import fadidev.bungeemsg.handlers.SpigotBridge.StandardVariable;
+import fadidev.bungeemsg.handlers.bungeeperms.BungeePermsApi;
+import fadidev.bungeemsg.handlers.spigotbridge.PlayerVariable;
+import fadidev.bungeemsg.handlers.spigotbridge.StandardVariable;
 import fadidev.bungeemsg.managers.AdvertiseManager;
 import fadidev.bungeemsg.managers.ConfigManager;
 import fadidev.bungeemsg.managers.LogManager;
@@ -62,15 +63,21 @@ public class BungeeMSG extends Plugin {
     private boolean useAnnouncer;
     private boolean useBannedWords;
 
+    /* SpigotBridge */
     private Map<String, StandardVariable> standardVariables;
     private Map<String, PlayerVariable> playerVariables;
+
+    /* BungeePerms */
+    private BungeePermsApi bungeePermsApi;
     
     public void onEnable(){
         plugin = this;
-        this.version = "v2.1.1_beta";
+        this.version = "v2.1.3_beta";
 
-        /* Setup for SpigotBridge Data */
-        getProxy().registerChannel("SpigotBridge");
+        /* Setup for spigotbridge Data */
+        getProxy().registerChannel("spigotbridge");
+
+        setupBungeePerms();
         
         this.configManager = new ConfigManager();
         configManager.setup(Config.getCorrectOrder());
@@ -249,7 +256,21 @@ public class BungeeMSG extends Plugin {
         new BungeeScheduler(){}.schedule(this, new AutoAnnouncerRunnable(), 0, 1, TimeUnit.SECONDS);
         new BungeeScheduler(){}.schedule(this, new ActionBarRunnable(), 0, 1, TimeUnit.SECONDS);
     }
-    
+
+    private void setupBungeePerms(){
+        if(getProxy().getPluginManager().getPlugin("BungeePerms") != null){
+            this.bungeePermsApi = new BungeePermsApi();
+        }
+    }
+
+    public boolean bungeePermsUsed(){
+        return this.bungeePermsApi != null;
+    }
+
+    public BungeePermsApi getBungeePermsApi() {
+        return bungeePermsApi;
+    }
+
     private void loadMetrics(){
         try{
             Metrics metrics = new Metrics(this);

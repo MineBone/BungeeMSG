@@ -1,4 +1,4 @@
-package fadidev.bungeemsg.handlers.SpigotBridge;
+package fadidev.bungeemsg.handlers.spigotbridge;
 
 import fadidev.bungeemsg.BungeeMSG;
 

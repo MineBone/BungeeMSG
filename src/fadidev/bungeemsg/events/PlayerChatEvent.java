@@ -28,6 +28,8 @@ public class PlayerChatEvent implements Listener {
     @SuppressWarnings("deprecation")
     @EventHandler(priority = EventPriority.HIGH)
     public void onChat(ChatEvent e){
+        if(e.isCancelled()) return;
+
         this.msg = BungeeMSG.getInstance();
         Connection c = e.getSender();
         
@@ -54,9 +56,10 @@ public class PlayerChatEvent implements Listener {
             }
             
             if(ch != null){
+                e.setCancelled(true);
                 String message = e.getMessage().substring(symb.length());
                 
-                if(!bp.isMuted(e)){
+                if(!bp.isMuted()){
                     if(bp.canMessage(message, Cooldown.LAST_GLOBAL)){
                         MessageParser mP = ch.getMessage().getParser(bp);
                         mP.parseVariable(Variable.SENDER, p.getName());
@@ -64,10 +67,11 @@ public class PlayerChatEvent implements Listener {
                         mP.parseCustomVariables(p, null);
                         mP.parseVariable(Variable.MSG, message);
                         mP.send(p, false);
-                    
+
                         if(!mP.isCancelled()){
                             for(ProxiedPlayer player : bp.getNotIgnored()){
-                                if(!ch.usePermission() || player.hasPermission(ch.getPermission())){
+                                BungeePlayer bp2 = BungeePlayer.getBungeePlayer(player);
+                                if(!ch.usePermission() || bp2.hasPermission(ch.getPermission())){
                                     mP.send(player, p, p, false);
                                 }
                             }
@@ -80,8 +84,6 @@ public class PlayerChatEvent implements Listener {
                     MessageParser mP = Message.MUTED.getParser(bp);
                     mP.send(p, true);
                 }
-
-                e.setCancelled(true);
             }
             else{
                 ch = null;
@@ -90,7 +92,7 @@ public class PlayerChatEvent implements Listener {
                 for(Channel channel : msg.getChannels()){
                     if(!channel.usePermission() || bp.hasPermission(channel.getPermission())){
                         for(String symbol : channel.getToggleSymbols()){
-                            if(e.getMessage().toLowerCase().startsWith(symbol.toLowerCase())){
+                            if(e.getMessage().startsWith("/") && (e.getMessage() + " ").startsWith(symbol) || e.getMessage().equalsIgnoreCase(symbol)){
                                 ch = channel;
                                 break loop;
                             }
@@ -129,11 +131,12 @@ public class PlayerChatEvent implements Listener {
                 else{
                     if(!a[0].startsWith("/")){
                         String message = e.getMessage();
-                        
+
                         if(bp.getToggledChannel() != null){
+                            e.setCancelled(true);
                             Channel channel = bp.getToggledChannel();
                             
-                            if(!bp.isMuted(e)){
+                            if(!bp.isMuted()){
                                 if(bp.canMessage(message, Cooldown.LAST_GLOBAL)){
                                     MessageParser mP = channel.getMessage().getParser(bp);
                                     mP.parseVariable(Variable.SENDER, p.getName());
@@ -144,7 +147,8 @@ public class PlayerChatEvent implements Listener {
                                 
                                     if(!mP.isCancelled()){
                                         for(ProxiedPlayer player : bp.getNotIgnored()){
-                                            if(!channel.usePermission() || player.hasPermission(channel.getPermission())){
+                                            BungeePlayer bp2 = BungeePlayer.getBungeePlayer(player);
+                                            if(!channel.usePermission() || bp2.hasPermission(channel.getPermission())){
                                                 mP.send(player, p, p, false);
                                             }
                                         }
@@ -157,8 +161,6 @@ public class PlayerChatEvent implements Listener {
                                 MessageParser mP = Message.MUTED.getParser(bp);
                                 mP.send(p, true);
                             }
-
-                            e.setCancelled(true);
                         }
                         else{
                             if(msg.useAutoGlobal()){
@@ -172,7 +174,7 @@ public class PlayerChatEvent implements Listener {
                                 }
                                 
                                 if(group != null){
-                                    if(!bp.isMuted(e)){
+                                    if(!bp.isMuted()){
                                         if(bp.canMessage(message, Cooldown.LAST_GLOBAL)){
                                             MessageParser mP = group.getMSGLoader().getParser(bp);
                                             mP.parseVariable(Variable.SENDER, p.getName());
@@ -402,7 +404,7 @@ public class PlayerChatEvent implements Listener {
                                                     if(a.length == 2){
                                                         ProxiedPlayer p2 = PlayerUtils.getPlayer(a[1]);
                                                         
-                                                        if(p2 != null){
+                                                        if(p2 != null && !msg.hideTab(p2)){
                                                             BungeePlayer bp2 = msg.getBungeePlayers().get(p2);
                                                             if(bp2.hasMSGEnabled()){
                                                                 MessageParser mP = Message.PM_DISABLED_TO_SENDER.getParser(bp);
@@ -497,7 +499,7 @@ public class PlayerChatEvent implements Listener {
                                             break;
                                         case GLOBAL:
                                             {
-                                                if(!bp.isMuted(e)){
+                                                if(!bp.isMuted()){
                                                     ServerInfo server = p.getServer().getInfo();
                                                     Group group = null;
                                                     for(Group g : msg.getGroups()){
@@ -635,7 +637,7 @@ public class PlayerChatEvent implements Listener {
                                                 if(a.length == 2){
                                                     ProxiedPlayer p2 = PlayerUtils.getPlayer(a[1]);
                                                     
-                                                    if(p2 != null){
+                                                    if(p2 != null && !msg.hideTab(p2)){
                                                         if(p != p2){
                                                             List<UUID> ignored = bp.getIgnored();
                                                             if(ignored.contains(p2.getUniqueId())){
@@ -678,7 +680,7 @@ public class PlayerChatEvent implements Listener {
                                                 if(a.length > 2){
                                                     ProxiedPlayer p2 = PlayerUtils.getPlayer(a[1]);
                                                     
-                                                    if(p2 != null){
+                                                    if(p2 != null && !msg.hideTab(p2)){
                                                         if(p != p2){
                                                             if(!bp.onCooldown(Cooldown.REPORT)){
                                                                 String reason = e.getMessage().substring(a[0].length() + p2.getName().length() + 2);
@@ -699,7 +701,8 @@ public class PlayerChatEvent implements Listener {
                                                                 mP2.parseVariable(Variable.REASON, reason);
 
                                                                 for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()){
-                                                                    if(player != p && player.hasPermission("BungeeMSG.notifyreport")){
+                                                                    BungeePlayer bp2 = BungeePlayer.getBungeePlayer(player);
+                                                                    if(player != p && bp2.hasPermission("BungeeMSG.notifyreport")){
                                                                         mP2.send(player, false);
                                                                     }
                                                                 }
@@ -754,7 +757,8 @@ public class PlayerChatEvent implements Listener {
                                                         mP2.parseVariable(Variable.REASON, reason);
                                                         
                                                         for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()){
-                                                            if(player != p && player.hasPermission("BungeeMSG.notifyhelpop")){
+                                                            BungeePlayer bp2 = BungeePlayer.getBungeePlayer(player);
+                                                            if(player != p && bp2.hasPermission("BungeeMSG.notifyhelpop")){
                                                                 mP2.send(player, false);
                                                             }
                                                         }
@@ -815,11 +819,11 @@ public class PlayerChatEvent implements Listener {
                                             break;
                                         case MESSAGE:
                                             {
-                                                if(!bp.isMuted(e)){
+                                                if(!bp.isMuted()){
                                                     if(a.length > 2){
                                                         ProxiedPlayer p2 = PlayerUtils.getPlayer(a[1]);
                                                     
-                                                        if(p2 != null){
+                                                        if(p2 != null && !msg.hideTab(p2)){
                                                             if(p != p2){
                                                                 if(bp.hasMSGEnabled()){
                                                                     String message = e.getMessage().substring(a[0].length() + p2.getName().length() + 2);
@@ -928,7 +932,7 @@ public class PlayerChatEvent implements Listener {
                                             break;
                                         case REPLY:
                                             {
-                                                if(!bp.isMuted(e)){
+                                                if(!bp.isMuted()){
                                                     if(a.length > 1){
                                                         if(bp.getLastMSGTo() != null){
                                                             ProxiedPlayer p2 = bp.getLastMSGTo().getPlayer();

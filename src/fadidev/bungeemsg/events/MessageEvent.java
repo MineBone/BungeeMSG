@@ -1,8 +1,8 @@
 package fadidev.bungeemsg.events;
 
 import fadidev.bungeemsg.BungeeMSG;
-import fadidev.bungeemsg.handlers.SpigotBridge.PlayerVariable;
-import fadidev.bungeemsg.handlers.SpigotBridge.StandardVariable;
+import fadidev.bungeemsg.handlers.spigotbridge.PlayerVariable;
+import fadidev.bungeemsg.handlers.spigotbridge.StandardVariable;
 import fadidev.bungeemsg.utils.Utils;
 import fadidev.bungeemsg.utils.enums.VariableType;
 import net.md_5.bungee.api.connection.Server;
@@ -26,7 +26,7 @@ public class MessageEvent implements Listener {
 
     @EventHandler
     public void onPluginMessage(PluginMessageEvent e){
-        if(!e.getTag().equals("SpigotBridge") || !(e.getSender() instanceof Server)){
+        if(!e.getTag().equals("spigotbridge") || !(e.getSender() instanceof Server)){
             return;
         }
         msg = BungeeMSG.getInstance();
@@ -82,7 +82,7 @@ public class MessageEvent implements Listener {
                         String player = in.readUTF();
 
                         if(player.equals("done")){
-                            Utils.sendConsoleMSG("Clearing SpigotBridge Data for server " + server + "...");
+                            Utils.sendConsoleMSG("Clearing spigotbridge Data for server " + server + "...");
                             List<StandardVariable> standardToRemove = new ArrayList<>();
                             for(StandardVariable standardVariable : msg.getStandardVariables().values()){
                                 if(standardVariable.getServer().equals(server)){
@@ -106,7 +106,7 @@ public class MessageEvent implements Listener {
                             }
                         }
                         else{
-                            Utils.sendConsoleMSG("Clearing SpigotBridge Data for player " + player + "...");
+                            Utils.sendConsoleMSG("Clearing spigotbridge Data for player " + player + "...");
                             for(PlayerVariable playerVariable : msg.getPlayerVariables().values()){
                                 if(playerVariable.getPlayerValues().keySet().contains(player)){
                                     playerVariable.getPlayerValues().remove(player);
@@ -123,7 +123,7 @@ public class MessageEvent implements Listener {
                 }
             }
         }catch(IOException ex){
-            Utils.warnConsole("Error while receiving data from SpigotBridge:");
+            Utils.warnConsole("Error while receiving data from spigotbridge:");
             ex.printStackTrace();
         }
     }

@@ -1,16 +1,12 @@
 package fadidev.bungeemsg.events;
 
 import fadidev.bungeemsg.BungeeMSG;
-import fadidev.bungeemsg.handlers.ActionBar;
 import fadidev.bungeemsg.handlers.BungeePlayer;
-import fadidev.bungeemsg.handlers.SpigotBridge.PlayerVariable;
+import fadidev.bungeemsg.handlers.spigotbridge.PlayerVariable;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.event.ServerConnectEvent;
 import net.md_5.bungee.api.event.ServerDisconnectEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
-
-import java.util.UUID;
 
 public class PlayerDisconnectEvent implements Listener{
 

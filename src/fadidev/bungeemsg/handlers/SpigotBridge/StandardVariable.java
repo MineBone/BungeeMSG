@@ -1,9 +1,6 @@
-package fadidev.bungeemsg.handlers.SpigotBridge;
+package fadidev.bungeemsg.handlers.spigotbridge;
 
 import fadidev.bungeemsg.BungeeMSG;
-import fadidev.bungeemsg.utils.enums.VariableType;
-
-import java.util.Map;
 
 /**
  * Created by Fadi-Laptop on 7-2-2016.

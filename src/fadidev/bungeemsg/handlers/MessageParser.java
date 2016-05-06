@@ -1,8 +1,8 @@
 package fadidev.bungeemsg.handlers;
 
 import fadidev.bungeemsg.BungeeMSG;
-import fadidev.bungeemsg.handlers.SpigotBridge.PlayerVariable;
-import fadidev.bungeemsg.handlers.SpigotBridge.StandardVariable;
+import fadidev.bungeemsg.handlers.spigotbridge.PlayerVariable;
+import fadidev.bungeemsg.handlers.spigotbridge.StandardVariable;
 import fadidev.bungeemsg.managers.AdvertiseManager;
 import fadidev.bungeemsg.utils.Utils;
 import fadidev.bungeemsg.utils.enums.LogReadType;
