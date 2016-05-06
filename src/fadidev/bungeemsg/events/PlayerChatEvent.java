@@ -174,6 +174,8 @@ public class PlayerChatEvent implements Listener {
                                 }
                                 
                                 if(group != null){
+                                    e.setCancelled(true);
+
                                     if(!bp.isMuted()){
                                         if(bp.canMessage(message, Cooldown.LAST_GLOBAL)){
                                             MessageParser mP = group.getMSGLoader().getParser(bp);

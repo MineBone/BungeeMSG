@@ -26,7 +26,7 @@ public class MessageEvent implements Listener {
 
     @EventHandler
     public void onPluginMessage(PluginMessageEvent e){
-        if(!e.getTag().equals("spigotbridge") || !(e.getSender() instanceof Server)){
+        if(!e.getTag().equals("SpigotBridge") || !(e.getSender() instanceof Server)){
             return;
         }
         msg = BungeeMSG.getInstance();
@@ -82,7 +82,7 @@ public class MessageEvent implements Listener {
                         String player = in.readUTF();
 
                         if(player.equals("done")){
-                            Utils.sendConsoleMSG("Clearing spigotbridge Data for server " + server + "...");
+                            Utils.sendConsoleMSG("Clearing SpigotBridge Data for server " + server + "...");
                             List<StandardVariable> standardToRemove = new ArrayList<>();
                             for(StandardVariable standardVariable : msg.getStandardVariables().values()){
                                 if(standardVariable.getServer().equals(server)){
@@ -106,7 +106,7 @@ public class MessageEvent implements Listener {
                             }
                         }
                         else{
-                            Utils.sendConsoleMSG("Clearing spigotbridge Data for player " + player + "...");
+                            Utils.sendConsoleMSG("Clearing SpigotBridge Data for player " + player + "...");
                             for(PlayerVariable playerVariable : msg.getPlayerVariables().values()){
                                 if(playerVariable.getPlayerValues().keySet().contains(player)){
                                     playerVariable.getPlayerValues().remove(player);

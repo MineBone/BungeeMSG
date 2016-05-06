@@ -72,10 +72,10 @@ public class BungeeMSG extends Plugin {
     
     public void onEnable(){
         plugin = this;
-        this.version = "v2.1.3_beta";
+        this.version = "v2.1.4_beta";
 
-        /* Setup for spigotbridge Data */
-        getProxy().registerChannel("spigotbridge");
+        /* Setup for SpigotBridge Data */
+        getProxy().registerChannel("SpigotBridge");
 
         setupBungeePerms();
         
