@@ -22,7 +22,8 @@ public enum Variable {
     RANK("%rank%"),
     AMOUNT("%amount%"),
     REPORTER("%reporter%"),
-    DATE("%date%");
+    DATE("%date%"),
+    INDEX("%index%");
 
     private String stringVariable;
 

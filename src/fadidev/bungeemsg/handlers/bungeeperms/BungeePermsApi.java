@@ -1,9 +1,11 @@
 package fadidev.bungeemsg.handlers.bungeeperms;
 
 import net.alpenblock.bungeeperms.BungeePerms;
+import net.alpenblock.bungeeperms.Group;
 import net.alpenblock.bungeeperms.PermissionsManager;
 import net.alpenblock.bungeeperms.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,5 +33,16 @@ public class BungeePermsApi {
 
     public List<String> getPerms(String usernameoruuid){
         return getUser(usernameoruuid).getPerms();
+    }
+
+    public List<String> getGroupPerms(String usernameoruuid){
+        List<String> perms = new ArrayList<>();
+        List<Group> groups = getUser(usernameoruuid).getGroups();
+
+        for(Group group : groups){
+            perms.addAll(group.getPerms());
+        }
+
+        return perms;
     }
 }

@@ -72,7 +72,7 @@ public class BungeeMSG extends Plugin {
     
     public void onEnable(){
         plugin = this;
-        this.version = "v2.1.4_beta";
+        this.version = "v2.1.5_beta";
 
         /* Setup for SpigotBridge Data */
         getProxy().registerChannel("SpigotBridge");
@@ -401,7 +401,7 @@ public class BungeeMSG extends Plugin {
                         String permission = c.getString(type.getPath() + ".Permission.Permission");
                         List<String> commands = c.getStringList(type.getPath() + ".Commands");
                         MessageLoader wrongUsage = null;
-                        if(type != CommandType.RELOAD && type != CommandType.SPY && type != CommandType.TOGGLE && type != CommandType.GLOBAL && type != CommandType.MUTE_ALL)
+                        if(type != CommandType.RELOAD && type != CommandType.SPY && type != CommandType.TOGGLE && type != CommandType.GLOBAL && type != CommandType.MUTE_ALL && type != CommandType.IGNORELIST)
                             wrongUsage = new MessageLoader(config, type.getPath() + ".Messages.WrongUsage");
 
                         MessageLoader noPermission = new MessageLoader(config, type.getPath() + ".Messages.NoPermission");
@@ -498,7 +498,7 @@ public class BungeeMSG extends Plugin {
                         try{
                             this.mutedUUIDs.add(UUID.fromString(uuid));
                         }catch(IllegalArgumentException ex){
-                            Utils.warnConsole("Error while parsing '" + uuid + "' to an UUID.");
+                            Utils.warnConsole("Error while parsing '" + uuid + "' to a UUID.");
                         }
                     }
                 }
@@ -584,11 +584,18 @@ public class BungeeMSG extends Plugin {
     }
 
     public boolean hideTab(ProxiedPlayer p){
-        PlayerVariable playerVariable = getPlayerVariables().get("%essentials-vanish%");
-        if(playerVariable == null) return false;
+        List<PlayerVariable> playerVariables = new ArrayList<>();
+        PlayerVariable essentialsVanish = getPlayerVariables().get("%essentials-vanish%");
+        if(essentialsVanish != null) playerVariables.add(essentialsVanish);
+        PlayerVariable supervanishVanish = getPlayerVariables().get("%supervanish-vanish%");
+        if(supervanishVanish != null) playerVariables.add(supervanishVanish);
 
-        Map<String, String> playerValues = playerVariable.getPlayerValues();
-        return playerValues.containsKey(p.getName()) && playerValues.get(p.getName()).equals("true");
+        for(PlayerVariable playerVariable : playerVariables){
+            Map<String, String> playerValues = playerVariable.getPlayerValues();
+            boolean hideTab = playerValues.containsKey(p.getName()) && playerValues.get(p.getName()).equals("true");
+            if(hideTab) return true;
+        }
+        return false;
     }
 
     /* API */

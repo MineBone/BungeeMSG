@@ -52,10 +52,12 @@ public class BungeePlayer {
             String[] ignoredUUIDs = c.getString("players." + uuid + ".Ignored").split("\\|");
 
             for(String ignoredUUID : ignoredUUIDs){
-                try{
-                    this.ignored.add(UUID.fromString(ignoredUUID));
-                }catch(IllegalArgumentException ex){
-                    Utils.warnConsole("Error while parsing '" + uuid + "' to an UUID.");
+                if(ignoredUUID.length() > 30) {
+                    try {
+                        this.ignored.add(UUID.fromString(ignoredUUID));
+                    } catch (IllegalArgumentException ex) {
+                        Utils.warnConsole("Error while parsing '" + ignoredUUID + "' to a UUID.");
+                    }
                 }
             }
         }
@@ -185,12 +187,15 @@ public class BungeePlayer {
         return !hasPermission("BungeeMSG.bypass.mute", "BungeeMSG.bypass.*") && (msg.getMutedUUIDs().contains(getPlayer().getUniqueId()) || msg.isAllMuted() || msg.getServersMuted().contains(getPlayer().getServer().getInfo()));
     }
 
+    // Maybe 'String... permissions' in a future update.
     public boolean hasPermission(String permission){
         List<String> perms = getBungeePerms();
         if(getRank() != null){
             perms.addAll(getRank().getPermissions());
         }
-        return perms.contains("*") || perms.contains(permission);
+        perms = lowercase(perms);
+
+        return perms.contains("*") || perms.contains(permission.toLowerCase());
     }
 
     public boolean hasPermission(String permission, String otherPermission){
@@ -198,13 +203,26 @@ public class BungeePlayer {
         if(getRank() != null){
             perms.addAll(getRank().getPermissions());
         }
-        return perms.contains("*") || perms.contains(permission) || perms.contains(otherPermission);
+        perms = lowercase(perms);
+
+        return perms.contains("*") || perms.contains(permission.toLowerCase()) || perms.contains(otherPermission.toLowerCase());
+    }
+
+    private List<String> lowercase(List<String> list){
+        List<String> lowerList = new ArrayList<>();
+        for(String s : list){
+            lowerList.add(s.toLowerCase());
+        }
+        return lowerList;
     }
 
     private List<String> getBungeePerms(){
         List<String> perms = new ArrayList<>();
         perms.addAll(getPlayer().getPermissions());
-        if(msg.bungeePermsUsed()) perms.addAll(msg.getBungeePermsApi().getPerms(getPlayer().getName()));
+        if(msg.bungeePermsUsed()){
+            perms.addAll(msg.getBungeePermsApi().getPerms(getPlayer().getName()));
+            perms.addAll(msg.getBungeePermsApi().getGroupPerms(getPlayer().getName()));
+        }
         return perms;
     }
 

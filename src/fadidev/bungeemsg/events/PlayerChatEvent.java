@@ -232,6 +232,113 @@ public class PlayerChatEvent implements Listener {
                                                 p.sendMessage("§7Reload §aCompleted§7!");
                                             }
                                             break;
+                                        case IGNORELIST:
+                                            {
+                                                List<UUID> uuids = bp.getIgnored();
+
+                                                if(uuids.size() > 0){
+                                                    MessageParser mP = Message.IGNORELIST_PRE.getParser(bp);
+                                                    mP.send(p, true);
+
+                                                    for(UUID uuid : uuids){
+                                                        MessageParser mP2 = Message.IGNORELIST_ITEM.getParser(bp);
+                                                        mP2.parseVariable(Variable.IGNORED, PlayerUtils.getNameOrUUID(uuid));
+                                                        mP2.send(p, true);
+                                                    }
+                                                }
+                                                else{
+                                                    MessageParser mP = Message.IGNORELIST_NONE.getParser(bp);
+                                                    mP.send(p, true);
+                                                }
+                                            }
+                                            break;
+                                        case ANNOUNCE:
+                                            {
+                                                if(a.length == 3){
+                                                    if(a[1].equalsIgnoreCase("list")){
+                                                        ServerInfo serverInfo = ProxyServer.getInstance().getServerInfo(a[2]);
+
+                                                        if(serverInfo != null){
+                                                            List<AutoAnnouncer> autoAnnouncers = AutoAnnouncer.getAutoAnnouncers(serverInfo);
+
+                                                            if(autoAnnouncers.size() > 0){
+                                                                int index = 1;
+                                                                for(AutoAnnouncer aa : autoAnnouncers){
+                                                                    for(MessageLoader msgL : aa.getMessages()){
+                                                                        MessageParser mP = Message.ANNOUNCE_LISTITEM.getParser(bp);
+                                                                        mP.parseVariable(Variable.INDEX, "" + index);
+                                                                        mP.send(p, true);
+
+                                                                        MessageParser mP2 = new MessageParser(bp, msgL);
+                                                                        mP2.parseVariable(Variable.RECEIVER, p.getName());
+                                                                        mP2.parseVariable(Variable.SERVER_RECEIVER, msg.getServerName(serverInfo));
+                                                                        mP2.send(p, true);
+
+                                                                        index++;
+                                                                    }
+                                                                }
+                                                            }
+                                                            else{
+                                                                MessageParser mP = Message.ANNOUNCE_NONE.getParser(bp);
+                                                                mP.send(p, true);
+                                                            }
+                                                        }
+                                                        else{
+                                                            MessageParser mP = Message.UNKNOWN_SERVER.getParser(bp);
+                                                            mP.send(p, true);
+                                                        }
+                                                    }
+                                                    else{
+                                                        ServerInfo serverInfo = ProxyServer.getInstance().getServerInfo(a[1]);
+
+                                                        if(serverInfo != null) {
+                                                            try{
+                                                                int i = Integer.parseInt(a[2]);
+                                                                int index = 1;
+                                                                boolean found = false;
+
+                                                                loop:
+                                                                for(AutoAnnouncer aa : AutoAnnouncer.getAutoAnnouncers(serverInfo)){
+                                                                    for(MessageLoader msgL : aa.getMessages()){
+                                                                        if(i == index){
+                                                                            found = true;
+
+                                                                            MessageParser mP = Message.ANNOUNCE.getParser(bp);
+                                                                            mP.parseVariable(Variable.INDEX, "" + index);
+                                                                            mP.send(p, true);
+
+                                                                            aa.announce(msgL);
+
+                                                                            break loop;
+                                                                        }
+
+                                                                        index++;
+                                                                    }
+                                                                }
+
+                                                                if(!found){
+                                                                    MessageParser mP = Message.ANNOUNCE_UNKNOWN.getParser(bp);
+                                                                    mP.parseVariable(Variable.INDEX, "" + i);
+                                                                    mP.send(p, true);
+                                                                }
+                                                            }catch(NumberFormatException ex){
+                                                                MessageParser mP = Message.UNKNOWN_NUMBER.getParser(bp);
+                                                                mP.send(p, true);
+                                                            }
+                                                        }
+                                                        else{
+                                                            MessageParser mP = Message.UNKNOWN_SERVER.getParser(bp);
+                                                            mP.send(p, true);
+                                                        }
+                                                    }
+                                                }
+                                                else{
+                                                    MessageParser mP = cmd.getWrongUsage().getParser(bp);
+                                                    mP.parseVariable(Variable.CMD, a[0].toLowerCase());
+                                                    mP.send(p, true);
+                                                }
+                                            }
+                                            break;
                                         case REPORTLIST:
                                             {
                                                 if(a.length == 2){

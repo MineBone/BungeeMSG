@@ -15,7 +15,9 @@ public enum CommandType {
     HELP_OP("HelpOp", true),
     BROADCAST("Broadcast", true),
     SETRANK("SetRank", true),
-    REPORTLIST("ReportList", true);
+    REPORTLIST("ReportList", true),
+    ANNOUNCE("Announce", true),
+    IGNORELIST("IgnoreList", true);
 
     private String path;
     private boolean playerTab;

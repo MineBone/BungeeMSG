@@ -83,7 +83,16 @@ public enum Message {
     UNKNOWN_NUMBER(Config.CONFIG, "UnknownNumber", true),
     UNKNOWN_SERVER(Config.CONFIG, "UnknownServer", true),
 
-    SERVER_HOVER(Config.CONFIG, "ServerSuggest.HoverMessage", false);
+    SERVER_HOVER(Config.CONFIG, "ServerSuggest.HoverMessage", false),
+
+    ANNOUNCE(Config.COMMAND, "Announce.Messages.Announce", true),
+    ANNOUNCE_LISTITEM(Config.COMMAND, "Announce.Messages.ListItem", true),
+    ANNOUNCE_NONE(Config.COMMAND, "Announce.Messages.None", true),
+    ANNOUNCE_UNKNOWN(Config.COMMAND, "Announce.Messages.Unknown", true),
+
+    IGNORELIST_PRE(Config.COMMAND, "IgnoreList.Messages.IgnoredList", true),
+    IGNORELIST_ITEM(Config.COMMAND, "IgnoreList.Messages.IgnoredItem", true),
+    IGNORELIST_NONE(Config.COMMAND, "IgnoreList.Messages.None", true);
 
     private Config config;
     private String path;

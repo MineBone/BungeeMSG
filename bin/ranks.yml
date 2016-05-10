@@ -53,6 +53,7 @@ Ranks:
     - BungeeMSG.toggle.other
     - BungeeMSG.mute
     - BungeeMSG.muteall
+    - BungeeMSG.announce
     - BungeeMSG.spy.on
     - BungeeMSG.notifyreport
     - BungeeMSG.notifyhelpop
@@ -68,3 +69,4 @@ Ranks:
     - BungeeMSG.ignore
     - BungeeMSG.report
     - BungeeMSG.helpop
+    - BungeeMSG.ignorelist

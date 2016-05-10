@@ -1,15 +1,10 @@
 package fadidev.bungeemsg.runnables;
 
-import java.util.List;
-
-import net.md_5.bungee.api.config.ServerInfo;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
 import fadidev.bungeemsg.BungeeMSG;
 import fadidev.bungeemsg.handlers.AutoAnnouncer;
-import fadidev.bungeemsg.handlers.BungeePlayer;
 import fadidev.bungeemsg.handlers.MessageLoader;
-import fadidev.bungeemsg.handlers.MessageParser;
-import fadidev.bungeemsg.utils.enums.Variable;
+
+import java.util.List;
 
 public class AutoAnnouncerRunnable implements Runnable {
 
@@ -33,18 +28,7 @@ public class AutoAnnouncerRunnable implements Runnable {
 
                     MessageLoader msgL = messageslist.get(index);
 
-                    for(ServerInfo info : aa.getServers()){
-                        for(ProxiedPlayer player : info.getPlayers()){
-                            BungeePlayer bp = msg.getBungeePlayers().get(player);
-                            ServerInfo server = player.getServer().getInfo();
-
-                            MessageParser mP = new MessageParser(bp, msgL);
-                            mP.parseVariable(Variable.RECEIVER, player.getName());
-                            mP.parseVariable(Variable.SERVER_RECEIVER, msg.getServerName(server));
-
-                            mP.send(player, true);
-                        }
-                    }
+                    aa.announce(msgL);
 
                     aa.setIndex(index +1);
                     aa.setTimer(0);

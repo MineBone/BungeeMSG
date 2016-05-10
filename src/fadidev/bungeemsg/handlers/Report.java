@@ -5,7 +5,6 @@ import fadidev.bungeemsg.utils.PlayerUtils;
 import fadidev.bungeemsg.utils.enums.Config;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.config.ServerInfo;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.config.Configuration;
 
 import java.util.ArrayList;
@@ -50,28 +49,16 @@ public class Report {
         if(reportedName != null)
           return reportedName;
 
-        ProxiedPlayer p = ProxyServer.getInstance().getPlayer(reported);
-        String name = null;
-        if(p != null) name = p.getName();
-        if(name == null) name = PlayerUtils.getName(reported);
-        if(name == null) name = reported.toString();
-
-        this.reportedName = name;
-        return name;
+        this.reportedName = PlayerUtils.getNameOrUUID(reported);
+        return reportedName;
     }
 
     public String getReportedByName() {
         if(reportedByName != null)
             return reportedByName;
 
-        ProxiedPlayer p = ProxyServer.getInstance().getPlayer(reportedBy);
-        String name = null;
-        if(p != null) name = p.getName();
-        if(name == null) name = PlayerUtils.getName(reportedBy);
-        if(name == null) name = reportedBy.toString();
-
-        this.reportedByName = name;
-        return name;
+        this.reportedByName = PlayerUtils.getNameOrUUID(reportedBy);
+        return reportedByName;
     }
 
     public String getServer() {

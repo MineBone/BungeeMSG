@@ -20,6 +20,17 @@ public class PlayerUtils {
         return null;
     }
 
+    public static String getNameOrUUID(UUID uuid){
+        String name = null;
+        ProxiedPlayer p = ProxyServer.getInstance().getPlayer(uuid);
+
+        if(p != null) name = p.getName();
+        if(name == null) name = getName(uuid);
+        if(name == null) name = uuid.toString();
+
+        return name;
+    }
+
     public static UUID getUUID(String playername){
         UUIDFetcher uuidf = new UUIDFetcher(Arrays.asList(playername));
         try{

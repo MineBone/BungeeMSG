@@ -311,3 +311,47 @@ ReportList:
 
   Commands:
   - /reportlist
+
+Announce:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.announce'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    WrongUsage:
+      Message: '&7Use &6%cmd% (server) <index>&7 or &6%cmd% list (server)&7.'
+    Announce:
+      Message: '&7You have forced an announcement! (&6#%index%&7)'
+    ListItem:
+      Message: '&7Announcement &6#%index%&7:'
+    None:
+      Message: '&7That server doesn''t have any announcers!'
+    Unknown:
+      Message: '&7Announcement &6#%index%&7 doesn''t exist.'
+
+  Commands:
+  - /announce
+
+IgnoreList:
+  Use: true
+
+  Permission:
+    Use: true
+    Permission: 'BungeeMSG.ignorelist'
+
+  Messages:
+    NoPermission:
+      Message: '&7You do not have access to this command!'
+    IgnoredList:
+      Message: '&7Ignored Players:'
+    IgnoredItem:
+      Message: '&7- &6%ignored%'
+    None:
+      Message: '&7You haven''t ignored anyone yet.'
+
+  Commands:
+  - /ignorelist
