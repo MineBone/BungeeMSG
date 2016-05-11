@@ -76,7 +76,7 @@ public class BungeePlayer {
             msg.getConfigManager().save(Config.PLAYERDATA);
         }
 
-        this.spy = hasPermission("BungeeMSG.spy.on", null);
+        this.spy = hasPermission("BungeeMSG.spy.on");
     }
 
     public ProxiedPlayer getPlayer() {
