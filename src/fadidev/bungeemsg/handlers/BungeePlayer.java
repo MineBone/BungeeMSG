@@ -221,7 +221,6 @@ public class BungeePlayer {
         perms.addAll(getPlayer().getPermissions());
         if(msg.bungeePermsUsed()){
             perms.addAll(msg.getBungeePermsApi().getPerms(getPlayer().getName()));
-            perms.addAll(msg.getBungeePermsApi().getGroupPerms(getPlayer().getName()));
         }
         return perms;
     }
