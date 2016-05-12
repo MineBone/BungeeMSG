@@ -72,7 +72,7 @@ public class BungeeMSG extends Plugin {
     
     public void onEnable(){
         plugin = this;
-        this.version = "v2.1.5_beta";
+        this.version = "v2.1.6_beta";
 
         /* Setup for SpigotBridge Data */
         getProxy().registerChannel("SpigotBridge");
@@ -584,13 +584,14 @@ public class BungeeMSG extends Plugin {
     }
 
     public boolean hideTab(ProxiedPlayer p){
-        List<PlayerVariable> playerVariables = new ArrayList<>();
-        PlayerVariable essentialsVanish = getPlayerVariables().get("%essentials-vanish%");
-        if(essentialsVanish != null) playerVariables.add(essentialsVanish);
-        PlayerVariable supervanishVanish = getPlayerVariables().get("%supervanish-vanish%");
-        if(supervanishVanish != null) playerVariables.add(supervanishVanish);
+        List<PlayerVariable> vanishVariables = new ArrayList<>();
+        for(String variable : getPlayerVariables().keySet()){
+            if(variable.endsWith("-vanish%")){
+                vanishVariables.add(getPlayerVariables().get(variable));
+            }
+        }
 
-        for(PlayerVariable playerVariable : playerVariables){
+        for(PlayerVariable playerVariable : vanishVariables){
             Map<String, String> playerValues = playerVariable.getPlayerValues();
             boolean hideTab = playerValues.containsKey(p.getName()) && playerValues.get(p.getName()).equals("true");
             if(hideTab) return true;

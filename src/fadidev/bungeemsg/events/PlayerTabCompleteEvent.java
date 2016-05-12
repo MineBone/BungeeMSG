@@ -1,5 +1,10 @@
 package fadidev.bungeemsg.events;
 
+import fadidev.bungeemsg.BungeeMSG;
+import fadidev.bungeemsg.handlers.BungeePlayer;
+import fadidev.bungeemsg.handlers.Channel;
+import fadidev.bungeemsg.handlers.Command;
+import fadidev.bungeemsg.utils.enums.CommandType;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
@@ -7,18 +12,13 @@ import net.md_5.bungee.api.event.TabCompleteEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 import net.md_5.bungee.event.EventPriority;
-import fadidev.bungeemsg.BungeeMSG;
-import fadidev.bungeemsg.handlers.BungeePlayer;
-import fadidev.bungeemsg.handlers.Channel;
-import fadidev.bungeemsg.handlers.Command;
-import fadidev.bungeemsg.utils.enums.CommandType;
 
 public class PlayerTabCompleteEvent implements Listener {
 
     private BungeeMSG msg;
 
-    @EventHandler(priority = EventPriority.HIGHEST)
-    public void onTab(TabCompleteEvent  e){
+    @EventHandler(priority = EventPriority.LOW)
+    public void onTab(TabCompleteEvent e){
         if(!e.getSuggestions().isEmpty()){
             return;
         }
@@ -31,8 +31,14 @@ public class PlayerTabCompleteEvent implements Listener {
                     if(a.length > 1){
                         final String checked = (a.length > 0 ? a[a.length - 1] : e.getCursor()).toLowerCase();
                         for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()){
-                            if(player.getName().toLowerCase().startsWith(checked) && !msg.hideTab(player)){
-                                e.getSuggestions().add(player.getName());
+                            if(player.getName().toLowerCase().startsWith(checked)){
+                                if(!msg.hideTab(player)) {
+                                    e.getSuggestions().add(player.getName());
+                                }
+                                else{
+                                    /* Cancel event, as spigot will automatically add hidden players if we don't. */
+                                    e.setCancelled(true);
+                                }
                             }
                         }
                     }
@@ -94,6 +100,10 @@ public class PlayerTabCompleteEvent implements Listener {
                         for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()){
                             if(player.getName().toLowerCase().startsWith(checked) && !msg.hideTab(player)){
                                 e.getSuggestions().add(player.getName());
+                            }
+                            else{
+                                /* Cancel event, as spigot will automatically add hidden players if we don't. */
+                                e.setCancelled(true);
                             }
                         }
                     }

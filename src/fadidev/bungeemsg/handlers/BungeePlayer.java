@@ -499,6 +499,10 @@ public class BungeePlayer {
     }
 
     public static BungeePlayer getBungeePlayer(ProxiedPlayer p){
-        return msg.getBungeePlayers().get(p);
+        if(msg.getBungeePlayers().containsKey(p)) return msg.getBungeePlayers().get(p);
+
+        BungeePlayer bp = new BungeePlayer(p);
+        msg.getBungeePlayers().put(p, bp);
+        return bp;
     }
 }
