@@ -75,6 +75,10 @@ public class Utils {
         return servers;
     }
 
+    public static String cc(String string){
+        return net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&', string);
+    }
+
     public static String checkforColors(ProxiedPlayer p, String message){
         BungeePlayer bp = BungeePlayer.getBungeePlayer(p);
 

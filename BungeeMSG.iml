@@ -23,7 +23,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="BungeePerms-3.01" level="project" />
     <orderEntry type="library" name="RedisBungee-0.3.8-INTERIM" level="project" />
-    <orderEntry type="library" name="BungeePerms-3.0" level="project" />
   </component>
 </module>

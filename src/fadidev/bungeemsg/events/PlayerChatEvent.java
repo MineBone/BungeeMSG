@@ -38,7 +38,7 @@ public class PlayerChatEvent implements Listener {
             ProxiedPlayer p = (ProxiedPlayer) c;
             BungeePlayer bp = msg.getBungeePlayers().get(p);
             LogManager lM = msg.getLogManager();
-            
+
             Channel ch = null;
             String symb = null;
             

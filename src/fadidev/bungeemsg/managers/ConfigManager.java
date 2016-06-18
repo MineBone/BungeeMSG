@@ -1,19 +1,22 @@
 package fadidev.bungeemsg.managers;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
-
+import com.google.common.base.Charsets;
+import fadidev.bungeemsg.BungeeMSG;
+import fadidev.bungeemsg.utils.Utils;
+import fadidev.bungeemsg.utils.enums.Config;
 import fadidev.old_plugin.OldConfigChecker;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
-import fadidev.bungeemsg.BungeeMSG;
-import fadidev.bungeemsg.utils.Utils;
-import fadidev.bungeemsg.utils.enums.Config;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.HashMap;
+import java.util.Map;
  
 public class ConfigManager {
  
@@ -47,7 +50,7 @@ public class ConfigManager {
             }
 
             try{
-                this.configs.put(config, YamlConfiguration.getProvider(YamlConfiguration.class).load(f));
+                this.configs.put(config, YamlConfiguration.getProvider(YamlConfiguration.class).load(new InputStreamReader(new FileInputStream(f), Charsets.UTF_8)));
             }catch(IOException e){
                 Utils.warnConsole("Error while loading " + config.getFileName());
                 e.printStackTrace();
@@ -75,7 +78,7 @@ public class ConfigManager {
 
     public void reload(Config config){
         try{
-            this.configs.put(config, YamlConfiguration.getProvider(YamlConfiguration.class).load(this.files.get(config)));
+            this.configs.put(config, YamlConfiguration.getProvider(YamlConfiguration.class).load(new InputStreamReader(new FileInputStream(this.files.get(config)), Charsets.UTF_8)));
         }catch(IOException ex){
             Utils.warnConsole("Error while reloading " + config.getFileName());
             ex.printStackTrace();

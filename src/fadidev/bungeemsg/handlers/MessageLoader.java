@@ -1,15 +1,14 @@
 package fadidev.bungeemsg.handlers;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import fadidev.bungeemsg.utils.Utils;
-import net.md_5.bungee.api.ProxyServer;
-import net.md_5.bungee.config.Configuration;
 import fadidev.bungeemsg.BungeeMSG;
 import fadidev.bungeemsg.managers.ConfigManager;
+import fadidev.bungeemsg.utils.Utils;
 import fadidev.bungeemsg.utils.enums.Config;
 import fadidev.bungeemsg.utils.enums.Message;
+import net.md_5.bungee.config.Configuration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MessageLoader {
 
@@ -48,29 +47,29 @@ public class MessageLoader {
         if(c.get(getPath()) != null){
             if(MSG == null || MSG.canLoadNormal()){
                 if(c.get(getPath() + ".Message") != null){
-                    this.message = c.getString(getPath() + ".Message").replace("&", "§");
+                    this.message = Utils.cc(c.getString(getPath() + ".Message"));
                 }
                 if(c.get(getPath() + ".MessageList") != null){
-                    this.messageList = new ArrayList<String>();
+                    this.messageList = new ArrayList<>();
                     for(String s : c.getStringList(getPath() + ".MessageList")){
-                        messageList.add(s.replace("&", "§"));
+                        messageList.add(Utils.cc(s));
                     }
                 }
                 if(c.get(getPath() + ".Title") != null){
                     int fadeIn = c.getInt(getPath() + ".Title.FadeIn");
                     int stay = c.getInt(getPath() + ".Title.Stay");
                     int fadeOut = c.getInt(getPath() + ".Title.FadeOut");
-                    String title = c.getString(getPath() + ".Title.Title").replace("&", "§");
-                    String subTitle = c.getString(getPath() + ".Title.Subtitle").replace("&", "§");
+                    String title = Utils.cc(c.getString(getPath() + ".Title.Title"));
+                    String subTitle = Utils.cc(c.getString(getPath() + ".Title.Subtitle"));
 
                     this.title = new Title(title, subTitle, fadeIn, stay, fadeOut);
                 }
                 if(c.get(getPath() + ".ActionBar") != null){
-                    this.actionBar = new ActionBar(null, c.getString(getPath() + ".ActionBar.ActionBar").replace("&", "§"), c.getInt(getPath() + ".ActionBar.Stay"));
+                    this.actionBar = new ActionBar(null, Utils.cc(c.getString(getPath() + ".ActionBar.ActionBar")), c.getInt(getPath() + ".ActionBar.Stay"));
                 }
             }
             else{
-                this.message = c.getString(getPath()).replace("&", "§");
+                this.message = Utils.cc(c.getString(getPath()));
             }
         }
         else{
