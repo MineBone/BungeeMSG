@@ -61,7 +61,7 @@ public class AutoAnnouncer {
     public void announce(MessageLoader msgL){
         for(ServerInfo info : getServers()){
             for(ProxiedPlayer player : info.getPlayers()){
-                BungeePlayer bp = msg.getBungeePlayers().get(player);
+                BungeePlayer bp = BungeePlayer.getBungeePlayer(player);
                 ServerInfo server = player.getServer().getInfo();
 
                 MessageParser mP = new MessageParser(bp, msgL);

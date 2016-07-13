@@ -4,6 +4,7 @@ import net.alpenblock.bungeeperms.BungeePerms;
 import net.alpenblock.bungeeperms.PermissionsManager;
 import net.alpenblock.bungeeperms.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,7 +31,12 @@ public class BungeePermsApi {
     }
 
     public List<String> getPerms(String usernameoruuid){
-        return getUser(usernameoruuid).getEffectivePerms();
+        User user = getUser(usernameoruuid);
+
+        if(user == null)
+            return new ArrayList<>();
+
+        return user.getEffectivePerms();
     }
 
 }

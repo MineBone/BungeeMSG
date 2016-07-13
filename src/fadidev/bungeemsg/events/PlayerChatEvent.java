@@ -26,7 +26,7 @@ public class PlayerChatEvent implements Listener {
     private BungeeMSG msg;
     
     @SuppressWarnings("deprecation")
-    @EventHandler(priority = EventPriority.HIGH)
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onChat(ChatEvent e){
         if(e.isCancelled()) return;
 
@@ -990,7 +990,7 @@ public class PlayerChatEvent implements Listener {
                                                                                 mP3.parseVariable(Variable.MSG, message);
                                                                                 
                                                                                 for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()){
-                                                                                    BungeePlayer bplayer = msg.getBungeePlayers().get(player);
+                                                                                    BungeePlayer bplayer = BungeePlayer.getBungeePlayer(player);
                                                                                     
                                                                                     if(bplayer.isSpy() && player != p && player != p2){
                                                                                         mP3.send(player, false);
@@ -1043,7 +1043,7 @@ public class PlayerChatEvent implements Listener {
                                             {
                                                 if(!bp.isMuted()){
                                                     if(a.length > 1){
-                                                        if(bp.getLastMSGTo() != null){
+                                                        if(bp.getLastMSGTo() != null && bp.getLastMSGTo().getPlayer() != null){
                                                             ProxiedPlayer p2 = bp.getLastMSGTo().getPlayer();
 
                                                             if(p2.isConnected()){
@@ -1102,7 +1102,7 @@ public class PlayerChatEvent implements Listener {
                                                                                 mP3.parseVariable(Variable.MSG, message);
 
                                                                                 for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers()){
-                                                                                    BungeePlayer bplayer = msg.getBungeePlayers().get(player);
+                                                                                    BungeePlayer bplayer = BungeePlayer.getBungeePlayer(player);
 
                                                                                     if(bplayer.isSpy() && player != p && player != p2){
                                                                                         mP3.send(player, false);

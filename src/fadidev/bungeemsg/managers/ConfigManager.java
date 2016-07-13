@@ -27,8 +27,8 @@ public class ConfigManager {
 
     public ConfigManager(){
         msg = BungeeMSG.getInstance();
-        configs = new HashMap<Config, Configuration>();
-        files = new HashMap<Config, File>();
+        configs = new HashMap<>();
+        files = new HashMap<>();
     }
 
     public void setup(Config... configs){

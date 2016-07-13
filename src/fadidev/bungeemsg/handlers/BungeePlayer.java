@@ -417,7 +417,7 @@ public class BungeePlayer {
 
                 if(dif < 0) dif *= -1;
 
-                if(lastmessage.length() > 2){
+                if(lastmessage.length() > sM.getDuplicateSensitivity()){
                     String newstring = lastmessage.substring(0, lastmessage.length() - sM.getDuplicateSensitivity());
                     if(newstring.length() > 1){
                         lastmessage = newstring;
