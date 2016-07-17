@@ -601,19 +601,20 @@ public class BungeeMSG extends Plugin {
 
     /* API */
     public static boolean hasPermission(ProxiedPlayer p, String... permissions){
-        if(p == null || permissions == null){
-            throw new NullPointerException();
+        if(p == null){
+            throw new NullPointerException("Player cannot be null!");
         }
-
-        BungeePlayer bp = getInstance().getBungeePlayers().get(p);
-        Rank rank = bp.getRank();
-        if(rank != null){
-            for(String permission : permissions){
-                if(bp.hasPermission(permission)){
-                    return true;
-                }
+        
+        if(permissions == null) {
+        	throw new NullPointerException("Permission(s) cannot be null!");
+        }
+        
+        for(String permission : permissions) {
+            if(p.hasPermission(permission)) {
+                return true;
             }
         }
+
         return false;
     }
 }
