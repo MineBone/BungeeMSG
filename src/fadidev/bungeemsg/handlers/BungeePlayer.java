@@ -187,28 +187,17 @@ public class BungeePlayer {
         return !hasPermission("BungeeMSG.bypass.mute", "BungeeMSG.bypass.*") && (msg.getMutedUUIDs().contains(getPlayer().getUniqueId()) || msg.isAllMuted() || msg.getServersMuted().contains(getPlayer().getServer().getInfo()));
     }
 
-    // Maybe 'String... permissions' in a future update.
+    // Check if the player has a permission through BungeeCord's in-built permission system
     public boolean hasPermission(String permission){
-        List<String> perms = getBungeePerms();
-        if(getRank() != null){
-            perms.addAll(getRank().getPermissions());
-        }
-        perms = lowercase(perms);
-
-        return perms.contains("*") || perms.contains(permission.toLowerCase());
+        return player.hasPermission(permission);
     }
 
     public boolean hasPermission(String permission, String otherPermission){
-        List<String> perms = getBungeePerms();
-        if(getRank() != null){
-            perms.addAll(getRank().getPermissions());
-        }
-        perms = lowercase(perms);
-
-        return perms.contains("*") || perms.contains(permission.toLowerCase()) || perms.contains(otherPermission.toLowerCase());
+        return player.hasPermission(permission) || player.hasPermission(otherPermission);
     }
 
-    private List<String> lowercase(List<String> list){
+    @SuppressWarnings("unused")
+	private List<String> lowercase(List<String> list){
         List<String> lowerList = new ArrayList<>();
         for(String s : list){
             lowerList.add(s.toLowerCase());
@@ -216,7 +205,8 @@ public class BungeePlayer {
         return lowerList;
     }
 
-    private List<String> getBungeePerms(){
+    @SuppressWarnings("unused")
+	private List<String> getBungeePerms(){
         List<String> perms = new ArrayList<>();
         perms.addAll(getPlayer().getPermissions());
         if(msg.bungeePermsUsed()){
